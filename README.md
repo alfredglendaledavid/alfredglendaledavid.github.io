@@ -1,1 +1,0 @@
-# alfredglendaledavid.github.io
