@@ -350,7 +350,7 @@
 				a {
 					display: inline-block;
 					background: none;
-					width: 2.5em;
+					width: auto;
 					height: 2.5em;
 					line-height: 2.5em;
 					text-align: center;
@@ -537,6 +537,9 @@
 
 	.icon {
 		text-decoration: none;
+		margin-left: 2em;
+		margin-right: 2em;
+		vertical-align: middle;
 
 		&:before {
 			display: inline-block;
@@ -551,7 +554,15 @@
 		}
 
 		> .label {
-			display: none;
+			/* display: none; */
+			background: none;
+			font-size: 0.75em;
+			margin-left: 0.25em;
+			cursor: pointer!important;
+		}
+		
+		> .label:hover {
+			color: #ef8376;
 		}
 
 		&.circled {
@@ -636,13 +647,10 @@
 
 		.button {
 			display: inline-block;
-			border-radius: 100%;
-			width: 4.5em;
-			height: 4.5em;
-			line-height: 4.5em;
+			border-radius: 10px;
 			text-align: center;
 			font-size: 1.25em;
-			padding: 0;
+			padding: 1em 3em;;
 		}
 
 		hr {
@@ -896,6 +904,9 @@
 			p {
 				text-align: center;
 				margin: 0 0 3em 0;
+				a {
+					color: #ef8376;
+				}
 			}
 		}
 
@@ -956,7 +967,7 @@
 				position: absolute;
 				top: 50%;
 				margin: -1.5em 0 0 0;
-				background: url('images/arrow.svg') no-repeat center center;
+				background: url('../images/arrow.svg') no-repeat center center; 
 			}
 
 			&:hover {
@@ -988,6 +999,12 @@
 			&:after {
 				left: -0.25em;
 				@include vendor('transform', 'scaleX(-1)');
+			}
+		}
+		
+		header {
+			h2 {
+				text-align: center; 
 			}
 		}
 
@@ -1255,7 +1272,7 @@
 
 					li {
 						a {
-							width: 2.25em;
+							width: auto;
 						}
 					}
 				}
