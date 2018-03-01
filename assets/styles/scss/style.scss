@@ -1,17 +1,36 @@
-@charset 'utf-8';
+/******************************************************************
+	
+Stylesheet: Main Stylesheet
 
-@import 'settings';
-@import 'foundation';
-@import 'motion-ui';
+Here's where the magic happens. Here is where you import
+all of your Sass files so they can compile into one
+CSS file. 
 
+******************************************************************/
+
+// Import local Foundation overrides - Don't link to Bower version as it will be overwritten whenever updated
+@import "settings";
+
+// Import foundation.scss from vendor files
+@import "../../../node_modules/foundation-sites/scss/foundation";
+
+// Import Motion-UI from vendor files
+@import "../../../node_modules/motion-ui/src/motion-ui";
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+// Select the components you want to use
 @include foundation-global-styles;
+
+// Select the grid you would like to use
 // @include foundation-grid;
 // @include foundation-flex-grid;
 @include foundation-xy-grid-classes;
+
+@include foundation-flex-classes;
 @include foundation-typography;
-@include foundation-button;
 @include foundation-forms;
-// @include foundation-range-input;
+@include foundation-button;
 @include foundation-accordion;
 @include foundation-accordion-menu;
 @include foundation-badge;
@@ -43,10 +62,7 @@
 @include foundation-tooltip;
 @include foundation-top-bar;
 @include foundation-visibility-classes;
-// @include foundation-float-classes;
-@include foundation-flex-classes;
+@include foundation-float-classes;
 
-// @include foundation-prototype-classes;
-
-@include motion-ui-transitions;
-@include motion-ui-animations;
+// Import your custom styles
+@import "global";

@@ -1,47 +1,54 @@
-# Foundation for Sites Template
+Currently using Foundation 6.4.3.
 
-**Please open all issues with this template on the main [Foundation for Sites](https://github.com/zurb/foundation-sites/issues) repo.**
+## JointsWP Requirements
+JointsWP requires [Node.js](https://nodejs.org) v6.9.x or newer. This doesn't mean you need to understand Node (or even Gulp) - it's just the steps we need to take to make sure all of our development tools are installed. 
 
-This is the basic starter project for [Foundation for Sites 6](http://foundation.zurb.com/sites). It includes a Sass compiler and a starter HTML file for you.
-
-## Installation
-
-To use this template, your computer needs:
-
-- [NodeJS](https://nodejs.org/en/) (0.12 or greater)
-- [Git](https://git-scm.com/)
-
-This template can be installed with the Foundation CLI, or downloaded and set up manually.
-
-### Using the CLI
-
-Install the Foundation CLI with this command:
-
+## Getting Started 
+### Download JointsWP and install dependencies with npm 
 ```bash
-npm install foundation-cli --global
+$ cd my-wordpress-folder/wp-content/themes/
+$ git clone https://github.com/JeremyEnglert/JointsWP.git
+$ cd JointsWP
+$ npm install
 ```
+At this point, JointsWP should be installed and fully running on your local machine. If you prefer to install the theme manually, that will work as well - just be sure to run `npm install` after manually moving the files into the `/themes/` directory.
 
-Use this command to set up a blank Foundation for Sites project with this template:
-
+## Working with JointsWP
+### Watching for Changes
 ```bash
-foundation new --framework sites --template basic
+$ npm run watch
 ```
+* Watches for changes in the `assets/styles/scss` directory. When a change is made the SCSS files are compiled, concatenated with Foundation files and saved to the `/styles` directory. Sourcemaps will be created.
+* Watches for changes in the `assets/scripts/js` directory. When a change is made the JS files are compiled, concatenated with Foundation JS files and saved to the `/scripts` directory. Sourcemaps will be created.
+* Watches for changes in the `assets/images` directory. When a change is made the image files are optimized and saved over the original image.
 
-The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
-
-### Manual Setup
-
-To manually set up the template, first download it with Git:
-
+### Watching for Changes with Browsersync
 ```bash
-git clone https://github.com/zurb/foundation-sites-template projectname
+$ npm run browsersync
 ```
+This will watch the same files as `npm run watch`, but utilizes browsersync for live reloading and style injection. Be sure to update the `URL` variable in the `gulpfile.js` to your local install URL. 
 
-Then open the folder in your command line, and install the needed dependencies:
-
+## Compile and Minify All Theme Assets
 ```bash
-cd projectname
-npm install
+$ npm run build
 ```
+Compiles and minifies all scripts and styles.
 
-Finally, run `npm start` to run the Sass compiler. It will re-run every time you save a Sass file.
+### Compile Specific Assets
+* `$ npm run styles` - to compile all SCSS files in the `assets/styles/scss` directory.
+* `$ npm run scripts` - to compile all JS files in the `assets/scripts/js` directory.
+* `$ npm run images` - to optimize all image files in the `assets/images` directory.
+
+## File Structure - "Where to Put Stuff"
+
+### Custom Styles
+* `style.css` - this file is never actually loaded, however, this is where you set your theme name and is required by WordPress
+* `assets/styles/scss/style.scss` - import all of your styles here. If you create an additional SCSS file, be sure to import it here.
+* `assets/styles/scss/_main.scss` - place all of your custom styles here.
+* `assets/styles/scss/_settings.scss` - adjust Foundation style settings here.
+* `assets/styles/scss/login.scss` - place custom login styles here. This will generate it's own stylesheet.
+### Custom Scripts
+* `assets/scripts/js/` - place your custom scripts here. Each .JS file will be compiled and concatenated when the build process is ran.
+
+### Images
+* `assets/images/` - place your theme images here. Each image will be optimized when the build process is ran.

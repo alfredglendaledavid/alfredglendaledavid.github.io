@@ -60,7 +60,7 @@
 //  55. Top Bar
 //  56. Xy Grid
 
-@import 'util/util';
+@import '../../../node_modules/foundation-sites/scss/util/util';
 
 // 1. Global
 // ---------
@@ -299,7 +299,6 @@ $button-opacity-disabled: 0.25;
 $button-background-hover-lightness: -20%;
 $button-hollow-hover-lightness: -50%;
 $button-transition: background-color 0.25s ease-out, color 0.25s ease-out;
-$button-responsive-expanded: false;
 
 // 12. Button Group
 // ----------------
@@ -867,3 +866,4 @@ $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
+
